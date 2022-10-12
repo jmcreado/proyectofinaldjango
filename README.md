@@ -1,4 +1,4 @@
-# Proyecto Final
+# Primera entrega de Proyecto Final
 ~~~ Primera entrega del proyecto final
  Objetivos:
      1- Herencia HTML.
