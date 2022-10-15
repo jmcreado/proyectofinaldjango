@@ -1,0 +1,17 @@
+{% extends 'templates/app.html' %}
+
+{% block main %}
+<h1 class="fs-1">{{ profile.name }}</h1>
+<article>
+    <header class="d-flex justify-content-between border-2 border-bottom" style="font-size: .7rem;">
+        <p class="text-secondary">{{ profile.url }}</p>
+        <p class="text-secondary">{{ profile.user.email }}</p>
+    </header>
+    <main class="p-2 d-flex flex-wrap">
+        <img class="img-fluid rounded w-auto" src="https://picsum.photos/400/400?" alt="post image">
+        <div>
+            <p class="m-2">{{ profile.description }}</p>
+        </div>
+    </main>
+</article>
+{% endblock %}

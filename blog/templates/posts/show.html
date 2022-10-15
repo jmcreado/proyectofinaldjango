@@ -1,0 +1,15 @@
+{% extends 'templates/app.html' %}
+
+{% block main %}
+<h1 class="fs-1">{{ post.title }}</h1>
+<article>
+    <header class="d-flex justify-content-between border-2 border-bottom" style="font-size: .7rem;">
+        <p class="text-secondary">{{ post.author }}</p>
+        <p class="text-secondary">{{ post.created }}</p>
+    </header>
+    <main class="p-2 d-flex flex-wrap">
+        <img class="img-fluid rounded w-auto" src="{{ post.image.url }}" alt="post image">
+        <p class="m-2">{{post.content}}</p>
+    </main>
+</article>
+{% endblock %}

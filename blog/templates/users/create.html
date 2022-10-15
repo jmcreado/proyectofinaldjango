@@ -1,0 +1,14 @@
+{% extends 'templates/app.html' %}
+
+{% block main %}
+<h2>Nueva usuario</h2>
+
+<section class="mt-5 w-50">
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+        <input class="btn btn-primary" type="submit" value="Guardar">
+    </form>
+</section>
+{% endblock %}
