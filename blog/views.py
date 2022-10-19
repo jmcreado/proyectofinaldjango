@@ -1,9 +1,10 @@
 # Create your views here.
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm 
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib import messages
 
 # Home Blog
 from blog.forms import PostCreateForm, CategoryCreateForm, UserCreateForm
@@ -112,3 +113,16 @@ def auth_login(request):
 def auth_logout(request):
     logout(request)
     return HttpResponseRedirect('/')
+
+#prueba de registro
+def register_request(request):
+	if request.method == "POST":
+		form = UserCreateForm(request.POST)
+		if form.is_valid():
+			user = form.save()
+			login(request, user)
+			messages.success(request, "Registration successful." )
+			return redirect("main:homepage")
+		messages.error(request, "Unsuccessful registration. Invalid information.")
+	form = UserCreateForm()
+	return render (request=request, template_name="main/register.html", context={"register_form":form})
